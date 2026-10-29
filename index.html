@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DataX - Student Analytics System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">DX</div>
+
+            <div>
+                <h2>DataX</h2>
+                <span>Smart Analytics</span>
+            </div>
+        </div>
+
+        <nav>
+            <button class="nav-btn active" onclick="showSection('dashboard')">
+                🏠 Dashboard
+            </button>
+
+            <button class="nav-btn" onclick="showSection('students')">
+                👨‍🎓 Students
+            </button>
+
+            <button class="nav-btn" onclick="showSection('analysis')">
+                📊 Analysis
+            </button>
+
+            <button class="nav-btn" onclick="showSection('optimization')">
+                ⚡ Optimization
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>Integrated Data System</p>
+            <small>C++ • Data Structures • Analytics</small>
+        </div>
+
+    </aside>
+
+
+   
+    <main class="main-content">
+
+       
+        <header class="topbar">
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Manage, analyze and optimize your student data.</p>
+            </div>
+
+            <div class="profile">
+                <div class="profile-icon">A</div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Data Manager</small>
+                </div>
+            </div>
+
+        </header>
+
+
+       
+        <section id="dashboard" class="section active">
+
+            <div class="welcome-box">
+
+                <div>
+                    <span class="tag">SMART DATA MANAGEMENT</span>
+
+                    <h2>Welcome to DataX 👋</h2>
+
+                    <p>
+                        Your centralized system for managing,
+                        analyzing and optimizing student records.
+                    </p>
+                </div>
+
+                <div class="welcome-symbol">
+                    ◈
+                </div>
+
+            </div>
+
+
+          
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">👨‍🎓</div>
+
+                    <div>
+                        <span>Total Students</span>
+                        <h2 id="totalStudents">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+
+                    <div>
+                        <span>Average Marks</span>
+                        <h2 id="averageMarks">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+
+                    <div>
+                        <span>Highest Marks</span>
+                        <h2 id="highestMarks">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">✓</div>
+
+                    <div>
+                        <span>Pass Percentage</span>
+                        <h2 id="passPercentage">0%</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            
+            <div class="content-grid">
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Quick Actions</h3>
+                            <p>Access common operations</p>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+
+                        <button onclick="showSection('students')">
+                            <span>＋</span>
+                            Add Student
+                        </button>
+
+                        <button onclick="showSection('students')">
+                            <span>⌕</span>
+                            Search Student
+                        </button>
+
+                        <button onclick="showSection('analysis')">
+                            <span>◉</span>
+                            View Analysis
+                        </button>
+
+                        <button onclick="showSection('optimization')">
+                            <span>⚡</span>
+                            Optimize Search
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <h3>System Overview</h3>
+                            <p>Current system status</p>
+                        </div>
+
+                        <span class="status">● Online</span>
+                    </div>
+
+                    <div class="system-item">
+                        <span>Data Management</span>
+                        <strong>Active</strong>
+                    </div>
+
+                    <div class="system-item">
+                        <span>Data Analysis</span>
+                        <strong>Ready</strong>
+                    </div>
+
+                    <div class="system-item">
+                        <span>Optimization Engine</span>
+                        <strong>Ready</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+      
+       <section id="students" class="section">
+
+    <div class="page-title">
+        <h2>Student Records</h2>
+        <p>Add, view and manage student information.</p>
+    </div>
+
+
+    <!-- Add Student Form -->
+
+    <div class="panel add-student-panel">
+
+        <div class="panel-heading">
+
+            <div>
+                <h3>➕ Add New Student</h3>
+                <p>Enter student information below</p>
+            </div>
+
+        </div>
+
+
+        <form id="studentForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Student ID</label>
+                    <input
+                        type="number"
+                        id="studentId"
+                        placeholder="e.g. 101"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label>Student Name</label>
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="e.g. Rahul Sharma"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label>Department</label>
+
+                    <select id="studentDepartment" required>
+
+                        <option value="">
+                            Select Department
+                        </option>
+
+                        <option value="CSE">
+                            Computer Science
+                        </option>
+
+                        <option value="IT">
+                            Information Technology
+                        </option>
+
+                        <option value="ECE">
+                            Electronics
+                        </option>
+
+                        <option value="BCA">
+                            BCA
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label>Marks</label>
+
+                    <input
+                        type="number"
+                        id="studentMarks"
+                        min="0"
+                        max="100"
+                        placeholder="0 - 100"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button type="submit" class="primary-btn">
+                + Add Student
+            </button>
+
+        </form>
+
+    </div>
+
+
+
+
+    <div class="panel student-table-panel">
+
+        <div class="panel-heading">
+
+            <div>
+                <h3>📋 Student Database</h3>
+                <p id="studentCount">0 students registered</p>
+            </div>
+
+            <input
+                type="text"
+                id="searchInput"
+                class="search-box"
+                placeholder="🔍 Search student..."
+                onkeyup="searchStudents()"
+            >
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Marks</th>
+                        <th>Grade</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="studentTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+       
+        <section id="analysis" class="section">
+
+    <div class="page-title">
+        <h2>Data Analysis</h2>
+        <p>Analyze student performance and results.</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Total Students</h3>
+            <h2 id="analysisTotal">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <h3>Average Marks</h3>
+            <h2 id="analysisAverage">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <h3>Highest Marks</h3>
+            <h2 id="analysisHighest">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <h3>Lowest Marks</h3>
+            <h2 id="analysisLowest">0</h2>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Grade Distribution</h3>
+        <p id="gradeDistribution">Add students to view grade statistics.</p>
+    </div>
+
+    <div class="panel">
+        <h3>Department Performance</h3>
+        <div id="departmentPerformance">
+            Add students to view department statistics.
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Performance Insight</h3>
+        <p id="performanceInsight">
+            Add student records to generate insights.
+        </p>
+    </div>
+
+</section>
+
+
+       
+        <section id="optimization" class="section">
+
+    <div class="page-title">
+        <h2>Optimization Lab</h2>
+        <p>Compare searching algorithms using student data.</p>
+    </div>
+
+    <div class="optimization-card">
+
+        <div class="optimization-icon">
+            ⚡
+        </div>
+
+        <h3>Search Optimization</h3>
+
+        <p>
+            Enter a Student ID to compare Linear Search and Binary Search.
+        </p>
+
+        <div class="search-optimizer">
+            <input
+                type="number"
+                id="optimizationSearchInput"
+                placeholder="Enter Student ID">
+
+            <button
+                class="primary-btn"
+                onclick="runSearch()">
+                Run Search
+            </button>
+        </div>
+
+        <div class="algorithm-row">
+
+            <div>
+                <strong>Linear Search</strong>
+                <span>O(n)</span>
+                <p id="linearResult">Waiting for search...</p>
+            </div>
+
+            <div>
+                <strong>Binary Search</strong>
+                <span>O(log n)</span>
+                <p id="binaryResult">Waiting for search...</p>
+            </div>
+
+        </div>
+
+        <div class="optimization-result">
+            <h3>Search Result</h3>
+            <p id="optimizationResult">
+                Enter a Student ID and click Run Search.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
